@@ -90,8 +90,71 @@ bool rec_void (std::string &word){
 	return false;
 }
 
+bool open_paran(string &word){
+	if (word[0] == '('){
 
+		return true;
+	}
+		return false;
+}
 
+bool closed_paran(string &word){
+	if (word[0] == ')'){
+
+		return true;
+	}
+		return false;
+}
+
+bool open_brace(string &word){
+	if (word[0] == '{'){
+
+		return true;
+	}
+		return false;
+}
+bool closed_brace(string &word){
+	if (word[0] == '}'){
+
+		return true;
+	}
+		return false;
+}
+
+bool semi_colon(string &word){
+	if (word[0] == ';'){
+
+		return true;
+	}
+		return false;
+}
+bool numbers(string &word){
+	bool counter = true;
+	int i = 0;
+
+	while (counter){
+	char ch = word[i];
+	
+		switch(ch){
+			case('0'): i++; break;
+			case('1'): i++; break;
+			case('2'): i++; break;
+			case('3'): i++; break;
+			case('4'): i++; break;
+			case('5'): i++; break;
+			case('6'): i++; break;
+			case('7'): i++; break;
+			case('8'): i++; break;
+			case('9'): i++; break;
+		}
+		if (ch == '.' || ch == ';' || ch == ' '){
+
+			return true;
+		}
+		else{counter = false;}
+	}
+	return false;
+}
 /*
 enum tokens {
 	Identifier,
@@ -114,8 +177,8 @@ vector<tokens> Tokenizer(string &sourcecode){
 
 */
 int main() {
-	std::string x = "int asdfsvd = 3;";
-	if (rec_int(x)) {cout << "it work";} else {cout << "no  it does not"; }		
+	std::string x = "123;";
+	if (numbers(x)) {cout << "it work";} else {cout << "no  it does not"; }		
 	return 0;
 	
 }
