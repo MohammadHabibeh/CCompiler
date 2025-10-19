@@ -4,64 +4,94 @@ using namespace std;
 
 
 //recognizing the word int 
-/*
-bool bounds(char &ch){
-	if 
-	
+
+bool check_bounds_keywords(char ch){
+	return (ch == ';' || ch == ' ');
 }
-*/
+
 bool rec_int (std::string &word){
 	
 //checking wether how it compares to int
 	string compared = "int";
-	for(int i = 0; i < compared.length();i++){
+	int length = compared.length();
+	
+	for(int i = 0; i < length;i++){
 
 		if (word[i] != compared[i]){
 
 			return false;
-		} 
+		}
+		if (i == (length - 1)){
+			if(i + 1 <= word.length()){	
+			char bounds = word[i+1];
+			return (check_bounds_keywords(bounds));		
+		
+			}
+			else{
+				return false;
+			}
+		}
+	
 	}
-	return true;
-//checking how it compares to the bound
-/*
-	char* bounds = word.[i+1];
-	if (check_bounds(bounds)){ return true;} else{return false;}		
-*/
+	return false;
 }	
 
-
-
-//doing this for return
+//return
 bool rec_return (std::string &word){
 	
-//checking wether how it compares to int
 	string compared = "return";
-	for(int i = 0; i < compared.length();i++){
+	int length = compared.length();
+	
+	for(int i = 0; i < length;i++){
 
 		if (word[i] != compared[i]){
 
 			return false;
-		} 
-	}
+		}
+		if (i == (length - 1)){
+			if(i + 1 <= word.length()){	
+			char bounds = word[i+1];
+			return (check_bounds_keywords(bounds));		
+		
+			}
+			else{
+				return false;
+			}
+		}
 	
-	return true;
+	}
+	return false;
 }	
-
-//void keyword recognzer
+//void
 bool rec_void (std::string &word){
 	
 //checking wether how it compares to int
 	string compared = "void";
-	for(int i = 0; i < compared.length();i++){
+	int length = compared.length();
+	
+	for(int i = 0; i < length;i++){
 
 		if (word[i] != compared[i]){
 
 			return false;
-		} 
+		}
+		if (i == (length - 1)){
+			if(i + 1 <= word.length()){	
+			char bounds = word[i+1];
+			return (check_bounds_keywords(bounds));		
+		
+			}
+			else{
+				return false;
+			}
+		}
+	
 	}
-
-	return true;
+	return false;
 }
+
+
+
 /*
 enum tokens {
 	Identifier,
@@ -84,7 +114,7 @@ vector<tokens> Tokenizer(string &sourcecode){
 
 */
 int main() {
-	std::string x = "ind";
+	std::string x = "int asdfsvd = 3;";
 	if (rec_int(x)) {cout << "it work";} else {cout << "no  it does not"; }		
 	return 0;
 	
